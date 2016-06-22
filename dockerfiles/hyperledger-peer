@@ -1,0 +1,6 @@
+FROM gbolo/hyperledger:master
+MAINTAINER George Bolo
+
+RUN cp $GOPATH/src/github.com/hyperledger/fabric/consensus/obcpbft/config.yaml $GOPATH/bin
+
+CMD ["peer","node","start"]
