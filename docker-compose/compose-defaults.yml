@@ -2,7 +2,7 @@
 # See https://github.com/hyperledger/fabric/blob/master/docs/dev-setup/devnet-setup.md#using-consensus-plugin for more details.
 
 vp:
-  image: gbolo/hyperledger-peer:pbft-0.5
+  image: gbolo/hyperledger-peer:pbft-master
   restart: unless-stopped
   environment:
     - CORE_PEER_ADDRESSAUTODETECT=true
