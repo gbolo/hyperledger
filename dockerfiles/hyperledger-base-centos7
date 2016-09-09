@@ -1,0 +1,23 @@
+FROM centos:7
+MAINTAINER gbolo
+
+
+# INSTALL GO 1.6
+RUN curl -o /opt/go.tgz https://storage.googleapis.com/golang/go1.6.linux-amd64.tar.gz; \
+    cd /opt; \
+    tar xzf go.tgz; \
+    rm -rf go.tgz; \
+    mkdir /opt/gopath; \
+    chmod 777 /opt/gopath; \
+    echo 'export GOROOT=/opt/go' > /etc/profile.d/go.sh; \
+    echo 'export GOPATH=/opt/gopath' >> /etc/profile.d/go.sh; \
+    echo 'export PATH=$PATH:/opt/go/bin:/opt/gopath/bin' >> /etc/profile.d/go.sh; \
+    chmod +x /etc/profile.d/go.sh;
+
+# ENV
+ENV GOPATH=/opt/gopath
+ENV GOROOT=/opt/go
+ENV PATH=/opt/go/bin:/opt/gopath/bin:$PATH
+RUN PATH=$PATH:/opt/go/bin:/opt/gopath/bin
+RUN GOROOT=/opt/go
+RUN GOPATH=/opt/gopath
